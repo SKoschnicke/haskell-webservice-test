@@ -1,0 +1,20 @@
+Name:                webservice-test
+Version:             0.0
+Description:         A test of the webserver capabilities of haskell
+License:             GPL
+License-file:        LICENSE
+Author:              Sven Koschnicke
+Maintainer:          s.koschnicke@gfxpro.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+
+Executable webservice
+  Main-is:           main.hs
+  Build-Depends:     base >= 3 && < 5,
+                     wai,
+                     wai-extra,
+                     warp,
+                     hslogger,
+                     bytestring,
+                     http-types,
+                     blaze-builder
