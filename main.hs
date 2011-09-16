@@ -7,13 +7,15 @@ import Blaze.ByteString.Builder.Char.Utf8 (fromChar)
 import Data.Monoid (mconcat)
 import Network.HTTP.Types (status200)
 import qualified Data.ByteString.Char8 as B
+import Control.Monad.IO.Class (liftIO)
 
 import System.Log.Logger
 import System.Log.Handler.Simple
 
 
 my_app :: Application -- type Application = Request -> Iteratee ByteString IO Response
-my_app request =
+my_app request = do
+    liftIO (putStrLn "test")
     return $ ResponseBuilder -- Constructor for data Response: ResponseBuilder Status ResponseHeaders Builder
       status200
       [("Content-Type", "text/plain")]
